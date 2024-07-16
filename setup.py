@@ -11,4 +11,7 @@ setup(
     author_email='supalertee.com',
 
     py_modules=['Greenf_dict'],
+    install_requires=[
+    'numpy', 'matplotlib.pyplot '
+]
 )
