@@ -1,6 +1,8 @@
 import numpy as np
-from sympy import *
 import matplotlib.pyplot as plt
+
+__version__ = 'dev'
+
 
 class Noninteracting:
     def __init__(self):
@@ -30,10 +32,6 @@ class Scalarss:
                            [-b*(ky+kz*1j), b*(-kx+w), (-ky-kz*1j)* factor1, (-kx+w)* factor1]]) * (1/denorminator)
         return matrix
     
-    
-class ScalarSA
-    def __init__(self) -> None:
-         pass
 
 def spectra(Interaction,section , kx = 0,ky = 0 , kz = 0, omega = 0):
     if str(section) in ["xw", "wx"]:
