@@ -33,7 +33,7 @@ class Scalarss:
         return matrix
     
 
-def spectra(Interaction,section , kx = 0,ky = 0 , kz = 0, omega = 0):
+def spectra(Interaction, section = "all" , kx = 0,ky = 0 , kz = 0, omega = 0):
     if str(section) in ["xw", "wx"]:
     
         x = np.arange(-5,5,0.05)
