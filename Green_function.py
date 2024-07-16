@@ -17,7 +17,7 @@ class Noninteracting:
     
 class Scalarss:
     def __init__(self):
-        print("Check Mathematica file at {}")
+        print("Check Mathematica file at{}")
 
     @staticmethod
     def G(kx, ky, kz, w, b = 2):
@@ -31,7 +31,9 @@ class Scalarss:
         return matrix
     
     
-
+class ScalarSA
+    def __init__(self) -> None:
+         pass
 
 def spectra(Interaction,section , kx = 0,ky = 0 , kz = 0, omega = 0):
     if str(section) in ["xw", "wx"]:
