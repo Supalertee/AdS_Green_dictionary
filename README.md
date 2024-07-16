@@ -5,7 +5,7 @@ This package is built to be the Python version of the Holographic mean-field the
 
 The package contains Green's function and its physical quantity: Spectral function, 4x4 Green's function matrices, and their differentiation along momentum space.
 
-# install
+# installation
 
 ```zh
 python -m pip install git+https://github.com/Supalertee/Green_dict.git#egg=Green_dict
@@ -17,12 +17,12 @@ import Green_dict
 ```
 
 # The package contains several contributions as following
-1. spectral function generator <br />
+1. **Spectral Density Generator** <br />
   one can simply call the spectral function contribution as follows
 ```python
 import Green_dict as Gd
 
-Gd.spectra(Gd.<Interaction>, "<section>")
+Gd.spectra(Gd.<Interaction>, "<section>" #, kx =0 ,ky=0,kz=0,omega =0  as defult#)
 
 ```
 Where <Interaction> is a class of interaction which the user can select: 
