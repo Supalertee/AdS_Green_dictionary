@@ -32,6 +32,19 @@ class Scalarss:
                            [-b*(ky+kz*1j), b*(-kx+w), (-ky-kz*1j)* factor1, (-kx+w)* factor1]]) * (1/denorminator)
         return matrix
     
+class Scalarsa:
+     def __init__(self):
+          print("Check Mathematica file ar {}")
+
+     @staticmethod
+     def G(kx,ky,kz,w, b =2):
+        w = w +0.001*1j
+        denorminator = np.sqrt(kx**2+ky**2+kz**2+ b**2 - w**2)
+        matrix = np.array([[kx+w,-ky+kz*1j, 0 , b*1j]
+                           ,[-ky-kz*1j, -kx + w,  -b*1j , 0]
+                           ,[0 , b*1j , kx+w , -ky-kz*1j]
+                           ,[-b*1j , 0 , -ky+kz*1j , -kx + w]])*denorminator
+        return matrix
 
 def spectra(Interaction, section = "all" , kx = 0,ky = 0 , kz = 0, omega = 0):
     if str(section) in ["xw", "wx"]:
