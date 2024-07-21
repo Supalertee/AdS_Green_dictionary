@@ -43,7 +43,7 @@ class Scalarsa:
         matrix = np.array([[kx+w,-ky+kz*1j, 0 , b*1j]
                            ,[-ky-kz*1j, -kx + w,  -b*1j , 0]
                            ,[0 , b*1j , kx+w , -ky-kz*1j]
-                           ,[-b*1j , 0 , -ky+kz*1j , -kx + w]])*denorminator
+                           ,[-b*1j , 0 , -ky+kz*1j , -kx + w]])*(1/denorminator)
         return matrix
 
 def spectra(Interaction, section = "all" , kx = 0,ky = 0 , kz = 0, omega = 0):
