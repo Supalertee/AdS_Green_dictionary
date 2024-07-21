@@ -39,11 +39,10 @@ class Scalarsa:
      @staticmethod
      def G(kx,ky,kz,w, b =2):
         w = w +0.001*1j
-        denorminator = np.sqrt(kx**2+ky**2+kz**2+ b**2 - w**2)
         matrix = np.array([[kx+w,-ky+kz*1j, 0 , b*1j]
                            ,[-ky-kz*1j, -kx + w,  -b*1j , 0]
                            ,[0 , b*1j , kx+w , -ky-kz*1j]
-                           ,[-b*1j , 0 , -ky+kz*1j , -kx + w]])*(1/denorminator)
+                           ,[-b*1j , 0 , -ky+kz*1j , -kx + w]])* (1/(kx**2 + ky**2 + kz**2 + b**2 - w**2)**(1/2))
         return matrix
 
 def spectra(Interaction, section = "all" , kx = 0,ky = 0 , kz = 0, omega = 0):
