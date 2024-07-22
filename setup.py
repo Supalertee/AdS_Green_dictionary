@@ -11,5 +11,6 @@ setup(
     author_email='supalertee.com',
 
     py_modules=['Green_dict'],
-    install_requires=['numpy','matplotlib']
+    install_requires=['numpy','matplotlib'],
+    tests_require=['pytest']
     )
