@@ -24,13 +24,13 @@ class Scalarss:
     @staticmethod
     def G(kx, ky, kz, w, b = 2):
         w = w + 0.001*1j
-        factor1 = np.sqrt(kx**2+ky**2+kz**2+ b**2 - w**2)
-        denorminator = kx**2+ky**2+kz**2 - w**2
-        matrix = np.array([[kx+w * factor1, (-ky+kz*1j)*factor1, b*(kx+w), -b*(ky-kz*1j)], 
+        factor1 = np.sqrt(kx**2 + ky**2+kz**2 + b**2 - w**2)
+        denorminator = kx**2 + ky**2 + kz**2 - w**2
+        matrix = np.array([[(kx+w) * factor1, (-ky+kz*1j)*factor1, b*(kx+w), -b*(ky-kz*1j)], 
                            [(-ky-kz*1j)*factor1, (-kx+w)*factor1, -b*(ky+kz*1j) , b*(-kx+w)],
-                           [b*(kx+w), -b*(ky-kz*1j), kx+w * factor1, (-ky+kz*1j)*factor1],
-                           [-b*(ky+kz*1j), b*(-kx+w), (-ky-kz*1j)* factor1, (-kx+w)* factor1]]) * (1/denorminator)
-        return matrix
+                           [b*(kx+w), -b*(ky-kz*1j), (kx+w) * factor1, (-ky+kz*1j)*factor1],
+                           [-b*(ky+kz*1j), b*(-kx+w), (-ky-kz*1j)* factor1, (-kx+w)* factor1]])
+        return matrix/denorminator
     
 class Scalarsa:
     def __init__(self):
@@ -39,11 +39,12 @@ class Scalarsa:
     @staticmethod
     def G(kx,ky,kz,w, b =2):
         w = w +0.001*1j
+        factor1 = np.sqrt(kx**2 + ky**2+kz**2 + b**2 - w**2)
         matrix = np.array([[kx+w,-ky+kz*1j, 0 , b*1j]
                             ,[-ky-kz*1j, -kx + w,  -b*1j , 0]
                             ,[0 , b*1j , kx+w , -ky-kz*1j]
-                            ,[-b*1j , 0 , -ky+kz*1j , -kx + w]])* (1/(kx**2 + ky**2 + kz**2 + b**2 - w**2)**(1/2))
-        return matrix
+                            ,[-b*1j , 0 , -ky+kz*1j , -kx + w]])
+        return matrix/factor1
 
 class Bxss:
     def __init__(self):
