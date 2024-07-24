@@ -50,3 +50,4 @@ def test_matrix_Bx_ss():
         for j in range(expected_matrix_ss.shape[1]):
             assert pytest.approx(output_matrix[i, j],abs=1e-2)  == pytest.approx(expected_matrix_Bss[i, j], abs=1e-2)
 
+1
