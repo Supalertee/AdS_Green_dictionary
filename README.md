@@ -61,7 +61,7 @@ where R is any real number. <br />
 ```python
 import Green_dict as Gd
 
-Gd.spectra(Gd.Bxss), section = "xw"  ,ky=0,kz=3)
+Gd.spectra(Gd.Bxss, section = "xw"  ,ky=0,kz=3)
 
 ```
 
