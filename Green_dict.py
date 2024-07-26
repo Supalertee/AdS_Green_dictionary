@@ -83,6 +83,28 @@ class Bxsa:
 
         return matrix/denorminator
 
+class Bxyss:
+    def __init__(self):
+         print("Check Mathematica file ar {}")
+    
+    @staticmethod
+    def G(kx,ky,kz,w,b = 2):
+        w = w+0.001*1j
+        k = np.sqrt(kx**2 + ky**2)
+        Omega_p = np.sqrt((b+k)**2 + kz**2 - w**2)
+        Omega_m = np.sqrt((b-k)**2 + kz**2 - w**2)
+        denorminator = 2*b*(kz**2 - w**2)
+        a1 = b**2 - k**2 - kz**2 + w**2 + (Omega_p*Omega_m)
+        c1 = k*w*(Omega_m-Omega_p) + b*w*(Omega_m+Omega_p)
+        c2 = (kz**2 - w**2)*(Omega_m-Omega_p)*(kx/(k+0.00001))
+        d1 = kz*(k*(Omega_m-Omega_p)+b*(Omega_m+Omega_p))
+        d2 = (kz**2 -w**2)*(Omega_m-Omega_p)*(ky/(k+0.00001))
+        matrix = np.array([[c1 - c2, d1*1j + d2, -(a1*kz), -(a1*1j)*w], 
+                  [-d1*1j + d2, c1 + c2, (a1*1j)*w, -(a1*kz)], 
+                  [-(a1*kz), -a1*w*1j, c1 - c2, d1*1j + d2], 
+                  [a1*w*1j, -(a1*kz), -d1*1j + d2, c1 + c2]])
+        return matrix/denorminator
+
 
 
 def spectra(Interaction, section = "all" , kx = 0,ky = 0 , kz = 0, omega = 0):
