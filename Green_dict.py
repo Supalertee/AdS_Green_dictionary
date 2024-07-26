@@ -105,7 +105,26 @@ class Bxyss:
                   [a1*w*1j, -(a1*kz), -d1*1j + d2, c1 + c2]])
         return matrix/denorminator
 
-
+class Bxysa:
+    def __init__(self):
+         print("Check Mathematica file ar {}")
+    
+    @staticmethod
+    def G(kx,ky,kz,w,b = 2):
+        w = w+0.001*1j
+        k = np.sqrt(kx**2 + ky**2)
+        Omega_p = np.sqrt((b+k)**2 + kz**2 - w**2)
+        Omega_m = np.sqrt((b-k)**2 + kz**2 - w**2)
+        denorminator = 2*Omega_p*Omega_m
+        A1 = (Omega_m + Omega_p) 
+        A2 = (Omega_m - Omega_p) 
+        Sin = kx/(np.sqrt(kx**2 + ky**2 +0.001))
+        Cos = ky/(np.sqrt(kx**2 + ky**2 +0.001))
+        matrix = np.array([[(A2*b + A1*k)*Sin + A1*w, -(Cos*(A2*b + A1*k)) + 1j*A1*kz, -(A1*b) - A2*k + 1j*A2*Cos*kz - A2*Sin*w, A2*(1j*kz*Sin + Cos*w)],
+                          [-(Cos*(A2*b + A1*k)) - 1j*A1*kz, -((A2*b + A1*k)*Sin) + A1*w, A2*(1j*kz*Sin + Cos*w), -(A1*b) - A2*k - 1j*A2*Cos*kz + A2*Sin*w],
+                          [-(A1*b) - A2*k - 1j*A2*Cos*kz - A2*Sin*w, A2*(-1j*kz*Sin + Cos*w), (A2*b + A1*k)*Sin + A1*w, -(Cos*(A2*b + A1*k)) - 1j*A1*kz], 
+                          [A2*(-1j*kz*Sin + Cos*w), -(A1*b) - A2*k + 1j*A2*Cos*kz + A2*Sin*w, -(Cos*(A2*b + A1*k)) + 1j*A1*kz, -((A2*b + A1*k)*Sin) + A1*w]])
+        return matrix/denorminator
 
 def spectra(Interaction, section = "all" , kx = 0,ky = 0 , kz = 0, omega = 0):
     if str(section) in ["xw", "wx"]:
