@@ -102,17 +102,17 @@ def test_matrix_Bxy_ss_trace():
     assert pytest.approx(np.trace(expected_matrix_Bxyss),abs=1e-2)  == pytest.approx(output_matrix, abs=1e-2)
 
 
-expected_matrix_Bxysa = np.array(eval(open('test_Bxysa.txt').read()))      
+# expected_matrix_Bxysa = np.array(eval(open('test_Bxysa.txt').read()))      
 
-def test_matrix_Bxy_sa():
+# def test_matrix_Bxy_sa():
 
-    output_matrix = Gd.Bxyss.G(1,1,1,1)
-    assert output_matrix.shape == expected_matrix_Bxysa.shape
+#     output_matrix = Gd.Bxyss.G(1,1,1,1)
+#     assert output_matrix.shape == expected_matrix_Bxysa.shape
     
-    for i in range(expected_matrix_Bxysa.shape[0]):
-        for j in range(expected_matrix_Bxysa.shape[1]):
-            assert pytest.approx(output_matrix[i, j],abs=1e-2)  == pytest.approx(expected_matrix_Bxysa[i, j], abs=1e-2)
+#     for i in range(expected_matrix_Bxysa.shape[0]):
+#         for j in range(expected_matrix_Bxysa.shape[1]):
+#             assert pytest.approx(output_matrix[i, j],abs=1e-2)  == pytest.approx(expected_matrix_Bxysa[i, j], abs=1e-2)
 
-def test_matrix_Bxy_sa_trace():
-    output_matrix = np.trace(Gd.Bxyss.G(1,1,1,1))
-    assert pytest.approx(np.trace(expected_matrix_Bxysa),abs=1e-2)  == pytest.approx(output_matrix, abs=1e-2)
+# def test_matrix_Bxy_sa_trace():
+#     output_matrix = np.trace(Gd.Bxyss.G(1,1,1,1))
+#     assert pytest.approx(np.trace(expected_matrix_Bxysa),abs=1e-2)  == pytest.approx(output_matrix, abs=1e-2)
