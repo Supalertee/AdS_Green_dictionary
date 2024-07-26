@@ -50,4 +50,22 @@ def test_matrix_Bx_ss():
         for j in range(expected_matrix_ss.shape[1]):
             assert pytest.approx(output_matrix[i, j],abs=1e-2)  == pytest.approx(expected_matrix_Bss[i, j], abs=1e-2)
 
-1
+def test_matrix_Bx_ss_trace():
+    output_matrix = np.trace(Gd.Bxss.G(1,1,1,1))
+    assert pytest.approx(np.trace(expected_matrix_sa),abs=1e-2)  == pytest.approx(output_matrix, abs=1e-2)
+
+
+expected_matrix_Bsa = np.array(eval(open('test_Bxsa.txt').read()))      
+
+def test_matrix_Bx_ss():
+
+    output_matrix = Gd.Bxsa.G(1,1,1,1)
+    assert output_matrix.shape == expected_matrix_Bss.shape
+    
+    for i in range(expected_matrix_ss.shape[0]):
+        for j in range(expected_matrix_ss.shape[1]):
+            assert pytest.approx(output_matrix[i, j],abs=1e-2)  == pytest.approx(expected_matrix_Bsa[i, j], abs=1e-2)
+
+def test_matrix_Bx_ss_trace():
+    output_matrix = np.trace(Gd.Bxsa.G(1,1,1,1))
+    assert pytest.approx(np.trace(expected_matrix_Bsa),abs=1e-2)  == pytest.approx(output_matrix, abs=1e-2)

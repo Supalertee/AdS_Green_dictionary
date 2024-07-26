@@ -61,6 +61,29 @@ class Bxss:
                            [(ky+kz*1j)*(Omega_m-Omega_p)  , (kx-w)*(Omega_m-Omega_p)+b*(Omega_m+Omega_p) , -(ky+kz*1j)*(Omega_p+Omega_m) , -b*(-Omega_p+Omega_m)-((kx-w)*(Omega_p+Omega_m)) ]])
         return matrix/(2*Omega_m*Omega_p)
 
+class Bxsa: 
+    def __init__(self): 
+            print("Check Mathematica file ar {}")
+
+    @staticmethod
+    def G(kx,ky,kz,w,b = 2):
+        w = w+ 0.001*1j
+        Omega_p = np.sqrt((b+kx)**2 +ky**2 + kz**2 - w**2)
+        Omega_m = np.sqrt((b-kx)**2 +ky**2 + kz**2 - w**2)
+        k = np.sqrt(ky**2 + kz**2)
+        denorminator = 2*b*(ky**2 + kz**2 - w**2)
+        c1= w*(kx+w)*(Omega_m - Omega_p) + (k**2)*(-Omega_m + Omega_p) + b*w*(Omega_m + Omega_p)
+        c2 = w*(kx-w)*(Omega_m - Omega_p) + (k**2)*(Omega_m - Omega_p) + b*w*(Omega_m + Omega_p)
+        a1 = (b**2 - k**2 -kx**2 + w**2 + Omega_p*Omega_m)
+        a2 = kx*(Omega_m-Omega_p) + b*(Omega_p+Omega_m)
+        matrix = np.array([[c1,-a2*(ky-(kz*1j)),-a1*((ky*1j)+kz),a1*w*1j],
+                            [-a2*(ky+(kz*1j)), c2 , a1*w*1j , a1*(-ky*1j +kz)],
+                            [a1*(ky+kz*1j)*1j , -a1*w*1j , c1 , -a2*(ky+kz*1j)],
+                            [-a1*w*1j , a1*(ky*1j + kz) , -a2*(ky - kz*1j) , c2]])
+
+        return matrix/denorminator
+
+
 
 def spectra(Interaction, section = "all" , kx = 0,ky = 0 , kz = 0, omega = 0):
     if str(section) in ["xw", "wx"]:
