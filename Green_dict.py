@@ -34,7 +34,7 @@ class Scalarss:
     
 class Scalarsa:
     def __init__(self):
-          print("Check Mathematica file ar {}")
+          print("Check Mathematica file at {}")
 
     @staticmethod
     def G(kx,ky,kz,w, b =2):
@@ -48,7 +48,7 @@ class Scalarsa:
 
 class Bxss:
     def __init__(self):
-          print("Check Mathematica file ar {}")
+          print("Check Mathematica file at {}")
     
     @staticmethod
     def G(kx,ky,kz,w, b =2):
@@ -63,7 +63,7 @@ class Bxss:
 
 class Bxsa: 
     def __init__(self): 
-            print("Check Mathematica file ar {}")
+            print("Check Mathematica file at {}")
 
     @staticmethod
     def G(kx,ky,kz,w,b = 2):
@@ -85,7 +85,7 @@ class Bxsa:
 
 class Bxyss:
     def __init__(self):
-         print("Check Mathematica file ar {}")
+         print("Check Mathematica file at {}")
     
     @staticmethod
     def G(kx,ky,kz,w,b = 2):
